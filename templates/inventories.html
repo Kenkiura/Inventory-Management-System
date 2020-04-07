@@ -1,0 +1,332 @@
+{%extends 'base.html'%}
+
+{% block title %}
+inventories
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container ">
+
+    <!-- Button trigger modal -->
+    <button type="button" style="margin-top: 30px;" class="btn btn-primary" data-toggle="modal"
+        data-target="#addInventories">
+        Add Inventory
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addInventories" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Inventory</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--
+                       1. change the save button to submit
+                       2. add an action and method attribute to the form
+                            ----METHODS----
+                       methods are HTTP verbs used to tell the browser what to do
+
+                       a. GET - used to display information to the browser
+                          its not a must to specify a GET request because by default all browsers have an
+                          inbuilt GET request
+
+                       b. POST - used to send information
+                          A post request has to be declared for it to be used
+                          All forms must be given a post request before submission.
+                       c. PUT - used to display information
+                       d. DELETE - get rid of information
+
+                             ----ACTIONS----
+                        what to do or where to go when someone clicks save
+
+                        3. Add a name attribute to all fields (input,select)
+
+
+                     -->
+
+
+
+                    <form  action="{{url_for('inventories')}}"  method="POST">
+
+
+                        <!-- name field -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+
+                            <input name="name" type="name" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+
+                            <small id="emailHelp" class="form-text text-muted">Add stock for this
+                                inventory</small>
+                        </div>
+
+                        <!-- type field -->
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type</label>
+
+                            <select name='type' class="form-control" id="exampleFormControlSelect1">
+                                <option></option>
+                                <option>Product</option>
+                                <option>Service</option>
+                            </select>
+                        </div>
+
+                        <!-- BP field -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Buying Price</label>
+
+                            <input name="buying_price" type="float" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+
+                        
+                        <!-- SP field -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Selling Price</label>
+
+                            <input name="selling_price" type="float" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+                            <button type="submit" class="btn btn-primary">Save</button>
+        
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+<div class="container-fluid" style="margin-top: 30px;">
+
+
+<table class="table" id="inventoryTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">TYPE</th>
+        <th scope="col">BUYING PRICE</th>
+        <th scope="col">SELLING PRICE</th>
+        <th scope="col">STOCK</th>
+        <th scope="col">ACTION</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>
+
+
+
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addStock">
+    Add Stock
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Stock</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Stock</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Stock">
+                  </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSale">
+    Add Sale
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addSale" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Sale</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Quantity</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Quantity">
+                  </div>
+
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+            <button type="button" class="btn btn-warning">View Sale</button>
+
+
+
+
+
+
+<!-- Button trigger modal -->
+    <button type="button" class="btn btn-info" data-toggle="modal"
+        data-target="#edit">
+        Edit
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Inventory</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <form>
+
+                        <!-- name field -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Name</label>
+
+                            <input type="name" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+
+                            <small id="emailHelp" class="form-text text-muted">Add Name for this
+                                inventory</small>
+                        </div>
+
+                        <!-- type field -->
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type</label>
+
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option></option>
+                                <option>Product</option>
+                                <option>Service</option>
+                            </select>
+                        </div>
+
+                        <!-- BP field -->
+                        <div class="form-group">
+
+                            <label for="exampleInputEmail1">Buying Price</label>
+
+                            <input type="float" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+
+                        <!-- SP field -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Selling Price</label>
+
+                            <input type="float" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-primary">Update Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+            <button type="button" class="btn btn-danger">Delete</button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  
+
+
+</div>
+
+
+{% endblock %}

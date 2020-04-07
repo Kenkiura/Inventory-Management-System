@@ -1,11 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{%extends 'base.html'%}
+
+<title>
+    {% block title %}
+About us
+    {% endblock %}
+</title>
+
 </head>
 <body>
-    <h1>Hello {{name}}</h1>
+{% block content %}
+
+<h1>This is our About Page</h1>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident et beatae, quis blanditiis sit id consequatur doloribus sapiente sequi quae tempore necessitatibus inventore nostrum quidem odio possimus quibusdam nobis debitis!</p>
+
+    {% endblock %}
+
+    {% block footer %}
+
+<p>update</p>
+
+    {% endblock %}
+
 </body>
 </html>
