@@ -166,20 +166,29 @@ inventories
         </div>
         <div class="modal-body">
 
-            <form>
+
+
+
+
+            <form action="{{url_for('add_stock')}}" method="POST">
+
+
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Stock</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Stock">
+                    <input name= "stock" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Stock">
                   </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Stock</button>
+                  </div>
+
 
             </form>
 
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        
       </div>
     </div>
   </div>
@@ -205,21 +214,30 @@ inventories
         <div class="modal-body">
 
 
-            <form>
+            <form action="{{url_for('add_sale')}}" method="POST">
+
+
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Quantity</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Quantity">
+                    <input name="sale" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Quantity">
                   </div>
+
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add Sale</button>
+          
+                  </div>
+
+
+
+
 
             </form>
 
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-
-        </div>
+        
       </div>
     </div>
   </div>
@@ -253,13 +271,20 @@ inventories
                 <div class="modal-body">
 
 
-                    <form>
+
+                    
+
+                    <form action="{{url_for('edit')}}"  method="POST">
+
+
+
+
 
                         <!-- name field -->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name</label>
 
-                            <input type="name" class="form-control" id="exampleInputEmail1"
+                            <input name="name" type="name" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
 
                             <small id="emailHelp" class="form-text text-muted">Add Name for this
@@ -271,7 +296,7 @@ inventories
                         <div class="form-group">
                             <label for="exampleInputEmail1">Type</label>
 
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select name="type" class="form-control" id="exampleFormControlSelect1">
                                 <option></option>
                                 <option>Product</option>
                                 <option>Service</option>
@@ -283,7 +308,7 @@ inventories
 
                             <label for="exampleInputEmail1">Buying Price</label>
 
-                            <input type="float" class="form-control" id="exampleInputEmail1"
+                            <input name="buying_price" type="float" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
 
@@ -291,18 +316,24 @@ inventories
                         <div class="form-group">
                             <label for="exampleInputEmail1">Selling Price</label>
 
-                            <input type="float" class="form-control" id="exampleInputEmail1"
+                            <input name= "selling_price" type="float" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
+
+                        <div class="modal-footer">
+                    
+                            <button type="submit" class="btn btn-primary">Update Changes</button>
+                        </div>
+
 
                     </form>
 
 
                 </div>
-                <div class="modal-footer">
-                    
-                    <button type="button" class="btn btn-primary">Update Changes</button>
-                </div>
+                
+
+
+
             </div>
         </div>
     </div>
